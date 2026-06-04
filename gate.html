@@ -1,13 +1,18 @@
-<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>WTOTTER的后院 | WTOTTER的后院</title><meta name="author" content="littleot"><meta name="copyright" content="littleot"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="进入后院   body{     margin:0;     height:100vh;     display:flex;     justify-content:center;     align-items:center;     background:#0f172a;     font-family:&quot;Microsoft YaHei&quot;; }  .card{     width:3">
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><script>if (
+  !location.pathname.includes('/gate.html') &&
+  localStorage.getItem('blog_auth') !== 'ok'
+) {
+  location.replace('/gate.html');
+}</script><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>WTOTTER的后院 | WTOTTER的后院</title><meta name="author" content="littleot"><meta name="copyright" content="littleot"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="进入后院  &#x2F;* 全屏暗黑背景 *&#x2F; body{     margin:0;     height:100vh;     display:flex;     justify-content:center;     align-items:center;     background:#0b0f19;     color:#e5e7eb;     font-family:&quot;Microsof">
 <meta property="og:type" content="website">
 <meta property="og:title" content="WTOTTER的后院">
 <meta property="og:url" content="https://wtotter.github.io/gate.html">
 <meta property="og:site_name" content="WTOTTER的后院">
-<meta property="og:description" content="进入后院   body{     margin:0;     height:100vh;     display:flex;     justify-content:center;     align-items:center;     background:#0f172a;     font-family:&quot;Microsoft YaHei&quot;; }  .card{     width:3">
+<meta property="og:description" content="进入后院  &#x2F;* 全屏暗黑背景 *&#x2F; body{     margin:0;     height:100vh;     display:flex;     justify-content:center;     align-items:center;     background:#0b0f19;     color:#e5e7eb;     font-family:&quot;Microsof">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://wtotter.github.io/images/avatar.jpg">
-<meta property="article:published_time" content="2026-06-04T12:16:09.141Z">
-<meta property="article:modified_time" content="2026-06-04T12:16:09.141Z">
+<meta property="article:published_time" content="2026-06-04T12:41:17.649Z">
+<meta property="article:modified_time" content="2026-06-04T12:41:17.649Z">
 <meta property="article:author" content="littleot">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wtotter.github.io/images/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wtotter.github.io/gate.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -149,45 +154,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>进入后院</title>
-
 <style>
+/* 全屏暗黑背景 */
 body{
     margin:0;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#0f172a;
+    background:#0b0f19;
+    color:#e5e7eb;
     font-family:"Microsoft YaHei";
 }
 
+/* 卡片容器 */
 .card{
-    width:350px;
-    padding:30px;
-    border-radius:20px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
+    width:380px;
+    background:rgba(15,23,42,.85);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 30px rgba(59,130,246,.15);
+    border-radius:24px;
+    padding:35px;
     text-align:center;
-    color:white;
 }
 
+/* 标题 */
 h1{
     margin-bottom:10px;
 }
 
+/* 说明文字 */
 p{
     color:#aaa;
 }
 
+/* 输入框样式 */
 input{
     width:100%;
     padding:12px;
-    border:none;
-    border-radius:10px;
     margin-top:15px;
+    border:1px solid #374151;
+    border-radius:10px;
+    background:#111827;
+    color:white;
     box-sizing:border-box;
 }
 
+/* 按钮样式 */
 button{
     width:100%;
     margin-top:15px;
@@ -195,15 +209,18 @@ button{
     border:none;
     border-radius:10px;
     cursor:pointer;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
 }
 
+/* 错误提示 */
 .error{
     color:#ff6b6b;
     margin-top:10px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="card">
@@ -211,30 +228,27 @@ button{
     <p>请输入访问密码</p>
 
     <input id="pwd" type="password" placeholder="Password">
-
     <button onclick="login()">进入后院</button>
-
     <div id="msg" class="error"></div>
 </div>
 
 <script>
-const PASSWORD = "091922"; // 可以改成你想要的密码
+// 设置你的密码
+const PASSWORD = "091922"; 
 
 function login(){
     const pwd = document.getElementById("pwd").value;
-
     if(pwd === PASSWORD){
         localStorage.setItem("blog_auth","ok");
-        location.href="/";
+        location.href="/"; // 密码正确后跳回首页
     }else{
         document.getElementById("msg").innerText="密码错误";
     }
 }
 
-document.getElementById("pwd").addEventListener("keydown",e=>{
-    if(e.key==="Enter"){
-        login();
-    }
+// 支持按回车键登录
+document.getElementById("pwd").addEventListener("keydown", e=>{
+    if(e.key === "Enter") login();
 });
 </script>
 
@@ -262,4 +276,4 @@ document.getElementById("pwd").addEventListener("keydown",e=>{
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Runtime :</div><div class="item-count" id="runtimeshow" data-publishDate="2026-05-24T07:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-06-04T12:19:29.846Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By littleot</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async src="https://vercount.one/js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Runtime :</div><div class="item-count" id="runtimeshow" data-publishDate="2026-05-24T07:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-06-04T12:47:44.104Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By littleot</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async src="https://vercount.one/js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
